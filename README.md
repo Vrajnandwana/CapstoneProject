@@ -34,9 +34,9 @@ To run this project locally, follow these steps:
 ```bash
 git clone [https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git](https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git)
 cd YOUR-REPO-NAME
-2. Create a virtual environment:
+**2. Create a virtual environment:**
 
-Bash
+bash
 
 # For Windows
 python -m venv env
@@ -64,3 +64,4 @@ AZURE_OPENAI_DEPLOYMENT_NAME="YOUR_AZURE_DEPLOYMENT_NAME"
 Bash
 
 streamlit run app.py
+--
