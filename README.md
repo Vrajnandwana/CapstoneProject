@@ -1,6 +1,9 @@
 # 🧠 AI-Powered MRI Impression Assistant
 
 This is a Streamlit web application designed to assist medical professionals by generating and refining radiological impressions from MRI findings. The app leverages a two-step AI process to create comprehensive and clinically relevant reports.
+THe model link https://huggingface.co/Vrajk/mri-impressions
+try the deployed version here https://huggingface.co/spaces/Vrajk/mri
+
 
 ## ✨ Features
 
