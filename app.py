@@ -23,8 +23,8 @@ if "enhanced_impression" not in st.session_state:
     st.session_state.enhanced_impression = ""
 
 # ---- FINAL VERSION: Model config for deployment ----
-#MODEL_DIR = "Vrajk/mri-impressions" 
-MODEL_DIR = "./biobart-mri" 
+MODEL_DIR = "Vrajk/mri-impressions" 
+#MODEL_DIR = "./biobart-mri" 
 DEVICE = "cpu"
 
 @st.cache_resource(show_spinner="Loading MRI Impression Generation model...")

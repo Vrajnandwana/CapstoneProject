@@ -1,0 +1,18 @@
+# requirements.txt
+
+# Core web framework
+streamlit
+
+# For the BioBART model and tokenizer from Hugging Face
+transformers
+sentencepiece
+torch
+
+# For loading API keys from the .env file
+python-dotenv
+
+# For the Azure GPT API call
+openai
+
+# For PDF text extraction, including necessary dependencies for PDFs
+unstructured[local-inference]

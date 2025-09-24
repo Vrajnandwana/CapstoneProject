@@ -1,0 +1,18 @@
+# Ignore the file with secret API keys
+.env
+
+# Ignore Python virtual environment folders
+/env/
+/venv/
+/.venv/
+
+# Ignore Python cache files and compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore common OS and IDE folders/files
+.DS_Store
+.vscode/
+.idea/
