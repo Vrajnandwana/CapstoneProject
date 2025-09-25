@@ -23,7 +23,7 @@ if "enhanced_impression" not in st.session_state:
     st.session_state.enhanced_impression = ""
 
 # ---- FINAL VERSION: Model config for deployment ----
-MODEL_DIR = "Vrajk/mri-impressions" 
+MODEL_DIR = "Vrajk/mri-impressions"      # use this moel directive that is deployed on hugging face https://huggingface.co/Vrajk/mri-impressions 
 #MODEL_DIR = "./biobart-mri" 
 DEVICE = "cpu"
 
@@ -40,9 +40,9 @@ def load_model():
 
 tokenizer, model = load_model()
 
-# ---- Helper functions ----
 
-# --- FINAL VERSION: Helper function to validate input text ---
+
+# --- FINAL VERSION: validate input text ---
 def is_valid_mri_findings(text: str) -> bool:
     """Uses GPT to quickly check if the text is relevant."""
     if not AZURE_OPENAI_API_KEY:
@@ -111,7 +111,7 @@ def enhance_with_gpt(raw_impression: str, original_findings: str):
         model=AZURE_OPENAI_DEPLOYMENT_NAME,
         messages=[{"role": "user", "content": prompt}],
         temperature=0.2,
-        max_tokens=400
+        max_tokens=300
     )
     return response.choices[0].message.content.strip()
 
@@ -145,9 +145,9 @@ st.markdown("---")
 
 with st.sidebar:
     with st.expander("⚙️ Advanced Model Settings"):
-        beam_size = st.slider("Beam Size", min_value=2, max_value=10, value=5)
-        min_len = st.number_input("Min Impression Length", min_value=20, max_value=100, value=60)
-        max_len = st.number_input("Max Impression Length", min_value=80, max_value=300, value=160)
+        beam_size = st.slider("Beam Size", min_value=4, max_value=10, value=6)
+        min_len = st.number_input("Min Impression Length", min_value=80, max_value=180, value=120)
+        max_len = st.number_input("Max Impression Length", min_value=110, max_value=400, value=300)
 
 tab1, tab2, tab3 = st.tabs(["💡 Input", "🔹 Raw Impression", "🤖 Enhanced Impression"])
 
