@@ -23,7 +23,7 @@ if "enhanced_impression" not in st.session_state:
     st.session_state.enhanced_impression = ""
 
 # ---- FINAL VERSION: Model config for deployment ----
-MODEL_DIR = "Vrajk/mri-impressions"      # use this moel directive that is deployed on hugging face https://huggingface.co/Vrajk/mri-impressions 
+MODEL_DIR = "Vrajk/mri-impressions" 
 #MODEL_DIR = "./biobart-mri" 
 DEVICE = "cpu"
 
@@ -140,10 +140,21 @@ def extract_findings_from_pdf(pdf_file):
 
 # ---- Streamlit UI ----
 st.set_page_config(page_title="MRI Impression Assistant", layout="wide")
-st.markdown("<h1 style='text-align:center; color:#4B0082;'>🧠 MRI Impression Assistant</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align:center; color:#4B0082;'>🧠 Magnetic Resonance Imaging Impression Assistant</h1>", unsafe_allow_html=True)
 st.markdown("---")
+with st.expander("🧠 Know About MRI"):
+    st.markdown("""#### What is an MRI?
+MRI stands for **Magnetic Resonance Imaging**. It's a safe and powerful medical imaging technique that uses a strong magnet and radio waves to create incredibly detailed pictures of the inside of the body. Unlike X-rays or CT scans, it does not use any radiation. It is especially good at showing soft tissues like the brain, muscles, ligaments, and organs.
 
+---
+#### The Two Key Parts of a Report: After Imaging and getiing the scan it has to be written in Findings & Impression
+An MRI report is typically split into two main sections:
+
+* **Findings (The Evidence 🔬):** This is a long, detailed, and objective list of everything the radiologist observes on the scan. It describes the size, shape, and characteristics of all the relevant anatomy, piece by piece.
+* **Impression (The Conclusion ):** This is the most important part of the report. It is a short, synthesized summary of the most critical findings. It directly answers the referring doctor's question, "What is the medical problem?" and provides the final diagnosis.
+    """)
 with st.sidebar:
+    
     with st.expander("⚙️ Advanced Model Settings"):
         beam_size = st.slider("Beam Size", min_value=4, max_value=10, value=6)
         min_len = st.number_input("Min Impression Length", min_value=80, max_value=180, value=120)
