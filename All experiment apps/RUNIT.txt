@@ -1,0 +1,2 @@
+env\Scripts\activate
+python -m streamlit run biobart_app.py
