@@ -216,6 +216,7 @@ with tab3:
     else:
         st.info("The final, enhanced impression from GPT will appear here after generation.")
 
+
 with st.expander("ℹ️ About / Instructions"):
     st.markdown("""
     - **Step 1:** Provide MRI findings by pasting text or uploading a PDF report.
